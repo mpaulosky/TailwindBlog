@@ -1,8 +1,11 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.Web>("web");
+// Add SQL Server resource
+var sqlserver = builder.AddSqlServer("sqlserver");
+var database = sqlserver.AddDatabase("tailwinddb");
 
-// TODO: Add SqlServer
+builder.AddProject<Projects.Web>("web")
+	.WithReference(database);
 
 // TODO: Add MongoDB
 

@@ -26,11 +26,8 @@ builder.Services.AddAuthentication(options =>
 		})
 		.AddIdentityCookies();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-											throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-		options.UseSqlServer(connectionString));
+// Add Entity Framework with Aspire SQL Server integration
+builder.AddSqlServerDbContext<ApplicationDbContext>("tailwinddb");
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
