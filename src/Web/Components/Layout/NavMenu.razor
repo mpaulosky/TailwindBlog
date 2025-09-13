@@ -2,72 +2,102 @@
 
 @inject NavigationManager NavigationManager
 
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Web</a>
+<div class="flex items-center justify-between h-14 px-3 bg-black/20">
+    <div class="flex-1">
+        <a class="text-white text-lg font-semibold no-underline" href="">Web</a>
     </div>
 </div>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+<input type="checkbox" title="Navigation menu" class="navbar-toggler hidden" id="navbar-toggle" />
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
+<div class="nav-scrollable md:block md:h-[calc(100vh-3.5rem)] md:overflow-y-auto" onclick="document.querySelector('#navbar-toggle').checked = false">
+    <nav class="flex flex-col">
+        <div class="px-3 py-2">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktaG91c2UtZG9vci1maWxsIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik02LjUgMTQuNXYtMy41MDVjMC0uMjQ1LjI1LS40OTUuNS0uNDk1aDJjLjI1IDAgLjUuMjUuNS41djMuNWEuNS41IDAgMCAwIC41LjVoNGEuNS41IDAgMCAwIC41LS41di03YS41LjUgMCAwIDAtLjE0Ni0uMzU0TDEzIDUuNzkzVjIuNWEuNS41IDAgMCAwLS41LS41aC0xYS41LjUgMCAwIDAtLjUuNXYxLjI5M0w4LjM1NCAxLjE0NmEuNS41IDAgMCAwLS43MDggMGwtNiA2QS41LjUgMCAwIDAgMS41IDcuNXY3YS41LjUgMCAwIDAgLjUuNWg0YS41LjUgMCAwIDAgLjUtLjVaJy8+PC9zdmc+') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktaG91c2UtZG9vci1maWxsIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik02LjUgMTQuNXYtMy41MDVjMC0uMjQ1LjI1LS40OTUuNS0uNDk1aDJjLjI1IDAgLjUuMjUuNS41djMuNWEuNS41IDAgMCAwIC41LjVoNGEuNS41IDAgMCAwIC41LS41di03YS41LjUgMCAwIDAtLjE0Ni0uMzU0TDEzIDUuNzkzVjIuNWEuNS41IDAgMCAwLS41LS41aC0xYS41LjUgMCAwIDAtLjUuNXYxLjI5M0w4LjM1NCAxLjE0NmEuNS41IDAgMCAwLS43MDggMGwtNiA2QS41LjUgMCAwIDAgMS41IDcuNXY3YS41LjUgMCAwIDAgLjUuNWg0YS41LjUgMCAwIDAgLjUtLjVaJy8+PC9zdmc+') center/cover;" aria-hidden="true"></span> Home
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="px-3 py-2">
             <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGx1cy1zcXVhcmUtZmlsbCIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMiAwYTIgMiAwIDAgMC0yIDJ2MTJhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjJhMiAyIDAgMCAwLTItMkgyem02LjUgNC41djNoM2EuNS41IDAgMCAxIDAgMWgtM3YzYS41LjUgMCAwIDEtMSAwdi0zaC0zYS41LjUgMCAwIDEgMC0xaDN2LTNhLjUuNSAwIDAgMSAxIDB6Ii8+PC9zdmc+') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGx1cy1zcXVhcmUtZmlsbCIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMiAwYTIgMiAwIDAgMC0yIDJ2MTJhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjJhMiAyIDAgMCAwLTItMkgyem02LjUgNC41djNoM2EuNS41IDAgMCAxIDAgMWgtM3YzYS41LjUgMCAwIDEtMSAwdi0zaC0zYS41LjUgMCAwIDEgMC0xaDN2LTNhLjUuNSAwIDAgMSAxIDB6Ii8+PC9zdmc+') center/cover;" aria-hidden="true"></span> Counter
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="px-3 py-2">
             <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+                <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktbGlzdC1uZXN0ZWQiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNC41IDExLjVBLjUuNSAwIDAgMSA1IDExaDEwYS41LjUgMCAwIDEgMCAxSDVhLjUuNSAwIDAgMS0uNS0uNXptLTItNEEuNS41IDAgMCAxIDMgN2gxMGEuNS41IDAgMCAxIDAgMUgzYS41LjUgMCAwIDEtLjUtLjV6bS0yLTRBLjUuNSAwIDAgMSAxIDNoMTBhLjUuNSAwIDAgMSAwIDFIMWEuNS41IDAgMCAxLS41LS41eiIvPjwvc3ZnPg==') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktbGlzdC1uZXN0ZWQiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNC41IDExLjVBLjUuNSAwIDAgMSA1IDExaDEwYS41LjUgMCAwIDEgMCAxSDVhLjUuNSAwIDAgMS0uNS0uNXptLTItNEEuNS41IDAgMCAxIDMgN2gxMGEuNS41IDAgMCAxIDAgMUgzYS41LjUgMCAwIDEtLjUtLjV6bS0yLTRBLjUuNSAwIDAgMSAxIDNoMTBhLjUuNSAwIDAgMSAwIDFIMWEuNS41IDAgMCAxLS41LS41eiIvPjwvc3ZnPg==') center/cover;" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        <div class="px-3 py-2">
             <NavLink class="nav-link" href="auth">
-                <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Auth Required
+                <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktbGlzdC1uZXN0ZWQiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTggMWEyIDIgMCAwIDEgMiAydjRINlYzYTIgMiAwIDAgMSAyLTJ6bTMgNlYzYTMgMyAwIDAgMC02IDB2NGEyIDIgMCAwIDAtMiAydjVhMiAyIDAgMCAwIDIgMmg2YTIgMiAwIDAgMCAyLTJWOWEyIDIgMCAwIDAtMi0yek01IDhoNmExIDEgMCAwIDEgMSAxdjVhMSAxIDAgMCAxLTEgMUg1YTEgMSAwIDAgMS0xLTFWOWExIDEgMCAwIDEgMS0xeiIvPjwvc3ZnPg==') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktbGlzdC1uZXN0ZWQiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTggMWEyIDIgMCAwIDEgMiAydjRINlYzYTIgMiAwIDAgMSAyLTJ6bTMgNlYzYTMgMyAwIDAgMC02IDB2NGEyIDIgMCAwIDAtMiAydjVhMiAyIDAgMCAwIDIgMmg2YTIgMiAwIDAgMCAyLTJWOWEyIDIgMCAwIDAtMi0yek01IDhoNmExIDEgMCAwIDEgMSAxdjVhMSAxIDAgMCAxLTEgMUg1YTEgMSAwIDAgMS0xLTFWOWExIDEgMCAwIDEgMS0xeiIvPjwvc3ZnPg==') center/cover;" aria-hidden="true"></span> Auth Required
             </NavLink>
         </div>
 
         <AuthorizeView>
             <Authorized>
-                <div class="nav-item px-3">
+                <div class="px-3 py-2">
                     <NavLink class="nav-link" href="Account/Manage">
-                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
+                        <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGVyc29uLWZpbGwiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTMgMTRzLTEgMC0xLTEgMS00IDYtNCA2IDMgNiA0LTEgMS0xIDFIM1ptNS02YTMgMyAwIDEgMCAwLTYgMyAzIDAgMCAwIDAgNloiLz48L3N2Zz4=') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGVyc29uLWZpbGwiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTMgMTRzLTEgMC0xLTEgMS00IDYtNCA2IDMgNiA0LTEgMS0xIDFIM1ptNS02YTMgMyAwIDEgMCAwLTYgMyAzIDAgMCAwIDAgNloiLz48L3N2Zz4=') center/cover;" aria-hidden="true"></span> @context.User.Identity?.Name
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
+                <div class="px-3 py-2">
                     <form action="Account/Logout" method="post">
                         <AntiforgeryToken />
                         <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                        <button type="submit" class="nav-link">
-                            <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
+                        <button type="submit" class="nav-link w-full text-left">
+                            <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktYXJyb3ctYmFyLWxlZnQiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTEyLjUgMTVhLjUuNSAwIDAgMS0uNS0uNXYtMTNhLjUuNSAwIDAgMSAxIDB2MTNhLjUuNSAwIDAgMS0uNS41Wk0xMCA4YS41LjUgMCAwIDEtLjUuNUgzLjcwN2wyLjE0NyAyLjE0NmEuNS41IDAgMCAxLS43MDguNzA4bC0zLTNhLjUuNSAwIDAgMSAwLS43MDhsMy0zYS41LjUgMCAxIDEgLjcwOC43MDhMMy43MDcgNy41SDkuNWEuNS41IDAgMCAxIC41LjVaIi8+PC9zdmc+') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktYXJyb3ctYmFyLWxlZnQiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTEyLjUgMTVhLjUuNSAwIDAgMS0uNS0uNXYtMTNhLjUuNSAwIDAgMSAxIDB2MTNhLjUuNSAwIDAgMS0uNS41Wk0xMCA4YS41LjUgMCAwIDEtLjUuNUgzLjcwN2wyLjE0NyAyLjE0NmEuNS41IDAgMCAxLS43MDguNzA4bC0zLTNhLjUuNSAwIDAgMSAwLS43MDhsMy0zYS41LjUgMCAxIDEgLjcwOC43MDhMMy43MDcgNy41SDkuNWEuNS41IDAgMCAxIC41LjVaIi8+PC9zdmc+') center/cover;" aria-hidden="true"></span> Logout
                         </button>
                     </form>
                 </div>
             </Authorized>
             <NotAuthorized>
-                <div class="nav-item px-3">
+                <div class="px-3 py-2">
                     <NavLink class="nav-link" href="Account/Register">
-                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
+                        <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGVyc29uIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik04IDhhMyAzIDAgMSAwIDAtNiAzIDMgMCAwIDAgMCA2Wm0yLTNhMiAyIDAgMSAxLTQgMCAyIDIgMCAwIDEgNCAwWm00IDhjMCAxLTEgMS0xIDFIM3MtMSAwLTEtMSAxLTQgNi00IDYgMyA2IDRabS0xLS4wMDRjLS4wMDEtLjI0Ni0uMTU0LS45ODYtLjgzMi0xLjY2NEMxMS41MTYgMTAuNjggMTAuMjg5IDEwIDggMTBjLTIuMjkgMC0zLjUxNi42OC00LjE2OCAxLjMzMi0uNjc4LjY3OC0uODMgMS40MTgtLjgzMiAxLjY2NGgxMFoiLz48L3N2Zz4=') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGVyc29uIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik04IDhhMyAzIDAgMSAwIDAtNiAzIDMgMCAwIDAgMCA2Wm0yLTNhMiAyIDAgMSAxLTQgMCAyIDIgMCAwIDEgNCAwWm00IDhjMCAxLTEgMS0xIDFIM3MtMSAwLTEtMSAxLTQgNi00IDYgMyA2IDRabS0xLS4wMDRjLS4wMDEtLjI0Ni0uMTU0LS45ODYtLjgzMi0xLjY2NEMxMS41MTYgMTAuNjggMTAuMjg5IDEwIDggMTBjLTIuMjkgMC0zLjUxNi42OC00LjE2OCAxLjMzMi0uNjc4LjY3OC0uODMgMS40MTgtLjgzMiAxLjY2NGgxMFoiLz48L3N2Zz4=') center/cover;" aria-hidden="true"></span> Register
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
+                <div class="px-3 py-2">
                     <NavLink class="nav-link" href="Account/Login">
-                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+                        <span class="w-5 h-5 mr-3 bg-white/80" style="mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGVyc29uLWJhZGdlIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik02LjUgMmEuNS41IDAgMCAwIDAgMWgzYS41LjUgMCAwIDAgMC0xaC0zek0xMSA4YTMgMyAwIDEgMS02IDAgMyAzIDAgMCAxIDYgMHoiLz48cGF0aCBkPSJNNC41IDBBMS41IDEuNSAwIDAgMCAzIDEuNVYxNGEyIDIgMCAwIDAgMiAyaDhhMiAyIDAgMCAwIDItMlYxLjVBMS41IDEuNSAwIDAgMCAxMS41IDBIOXptMCAzVjEuNUEuNS41IDAgMCAxIDUgMWg2YS41LjUgMCAwIDEgLjUuNVYyaDEuNWEuNS41IDAgMCAxIC41LjV2MTAuNzk1YTQuMiA0LjIgMCAwIDAtLjc3Ni0uNDkyQzExLjM5MiAxMi4zODcgMTAuMDYzIDEyIDggMTJzLTMuMzkyLjM4Ny00LjIyNC44MDNhNC4yIDQuMiAwIDAgMC0uNzc2LjQ5MlYyLjVhLjUuNSAwIDAgMSAuNS0uNUgzeiIvPjwvc3ZnPg==') center/cover; -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IndoaXRlIiBjbGFzcz0iYmkgYmktcGVyc29uLWJhZGdlIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik02LjUgMmEuNS41IDAgMCAwIDAgMWgzYS41LjUgMCAwIDAgMC0xaC0zek0xMSA4YTMgMyAwIDEgMS02IDAgMyAzIDAgMCAxIDYgMHoiLz48cGF0aCBkPSJNNC41IDBBMS41IDEuNSAwIDAgMCAzIDEuNVYxNGEyIDIgMCAwIDAgMiAyaDhhMiAyIDAgMCAwIDItMlYxLjVBMS41IDEuNSAwIDAgMCAxMS41IDBIOXptMCAzVjEuNUEuNS41IDAgMCAxIDUgMWg2YS41LjUgMCAwIDEgLjUuNVYyaDEuNWEuNS41IDAgMCAxIC41LjV2MTAuNzk1YTQuMiA0LjIgMCAwIDAtLjc3Ni0uNDkyQzExLjM5MiAxMi4zODcgMTAuMDYzIDEyIDggMTJzLTMuMzkyLjM4Ny00LjIyNC44MDNhNC4yIDQuMiAwIDAgMC0uNzc2LjQ5MlYyLjVhLjUuNSAwIDAgMSAuNS0uNUgzeiIvPjwvc3ZnPg==') center/cover;" aria-hidden="true"></span> Login
                     </NavLink>
                 </div>
             </NotAuthorized>
         </AuthorizeView>
     </nav>
 </div>
+
+<!-- Mobile menu toggle styles using Tailwind for the hidden checkbox approach -->
+<style>
+  .navbar-toggler {
+    @apply appearance-none cursor-pointer w-14 h-10 text-white absolute top-2 right-4 md:hidden;
+    @apply border border-white/20 bg-white/10;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.75rem;
+  }
+
+  .navbar-toggler:checked {
+    @apply bg-white/50;
+  }
+
+  .nav-scrollable {
+    @apply hidden;
+  }
+
+  .navbar-toggler:checked ~ .nav-scrollable {
+    @apply block;
+  }
+
+  @media (min-width: 768px) {
+    .nav-scrollable {
+      @apply block;
+    }
+  }
+</style>
 
 @code {
     private string? currentUrl;
