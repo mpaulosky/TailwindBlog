@@ -69,6 +69,36 @@
     </nav>
 </div>
 
+<!-- Mobile menu toggle styles using Tailwind for the hidden checkbox approach -->
+<style>
+  .navbar-toggler {
+    @apply appearance-none cursor-pointer w-14 h-10 text-white absolute top-2 right-4 md:hidden;
+    @apply border border-white/20 bg-white/10;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.75rem;
+  }
+
+  .navbar-toggler:checked {
+    @apply bg-white/50;
+  }
+
+  .nav-scrollable {
+    @apply hidden;
+  }
+
+  .navbar-toggler:checked ~ .nav-scrollable {
+    @apply block;
+  }
+
+  @media (min-width: 768px) {
+    .nav-scrollable {
+      @apply block;
+    }
+  }
+</style>
+
 @code {
     private string? currentUrl;
 
