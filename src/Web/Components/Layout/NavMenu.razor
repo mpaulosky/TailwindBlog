@@ -4,64 +4,110 @@
 
 <div class="flex items-center justify-between h-14 px-3 bg-gray-900 bg-opacity-40">
     <div class="flex-1">
-        <a class="text-white text-lg font-medium" href="">Web</a>
+        <a class="text-white text-lg font-medium" href="/">Web</a>
     </div>
 </div>
 
-<input type="checkbox" title="Navigation menu" class="mobile-menu-toggle lg:hidden fixed top-2 right-4 w-14 h-10 text-white border border-white border-opacity-10 bg-white bg-opacity-10 cursor-pointer appearance-none z-10" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: center; background-size: 1.75rem;" />
 
-<div class="mobile-menu hidden lg:block overflow-y-auto" style="height: calc(100vh - 3.5rem);" onclick="document.querySelector('.mobile-menu-toggle').click()">
-    <nav class="flex flex-col">
+<button @onclick="ToggleMenu" title="Navigation menu"
+    class="lg:hidden fixed top-2 right-4 w-14 h-10 text-white border border-white border-opacity-10 bg-white bg-opacity-10 cursor-pointer appearance-none z-10 flex items-center justify-center"
+    style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: center; background-size: 1.75rem;"
+    aria-label="Toggle navigation menu"></button>
+
+<div class="mobile-menu overflow-y-auto lg:block" style="height: calc(100vh - 3.5rem);" @(isMenuOpen ? "" : "hidden" )>
+    <nav class="flex flex-col" @onclick="CloseMenuOnNav">
+        @code {
+            // ...existing code...
+            private void CloseMenuOnNav()
+            {
+                if (isMenuOpen)
+                {
+                    isMenuOpen = false;
+                }
+            }
+            // ...existing code...
+        }
         <div class="px-3 py-4 first:pt-4 last:pb-4">
-            <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="" Match="NavLinkMatch.All">
-                <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-house-door-fill%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z%27/%3E%3C/svg%3E');"></span> Home
+            <NavLink
+                class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                href="/" Match="NavLinkMatch.All">
+                <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                    style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-house-door-fill%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z%27/%3E%3C/svg%3E');"></span>
+                Home
             </NavLink>
         </div>
 
         <div class="px-3 py-2">
-            <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="counter">
-                <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-plus-square-fill%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z%27/%3E%3C/svg%3E');"></span> Counter
+            <NavLink
+                class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                href="counter">
+                <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                    style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-plus-square-fill%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z%27/%3E%3C/svg%3E');"></span>
+                Counter
             </NavLink>
         </div>
 
         <div class="px-3 py-2">
-            <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="weather">
-                <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-list-nested%27 viewBox=%270 0 16 16%27%3E%3Cpath fill-rule=%27evenodd%27 d=%27M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z%27/%3E%3C/svg%3E');"></span> Weather
+            <NavLink
+                class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                href="weather">
+                <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                    style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-list-nested%27 viewBox=%270 0 16 16%27%3E%3Cpath fill-rule=%27evenodd%27 d=%27M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z%27/%3E%3C/svg%3E');"></span>
+                Weather
             </NavLink>
         </div>
 
         <div class="px-3 py-2">
-            <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="auth">
-                <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-list-nested%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z%27/%3E%3C/svg%3E');"></span> Auth Required
+            <NavLink
+                class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                href="auth">
+                <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                    style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-list-nested%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z%27/%3E%3C/svg%3E');"></span>
+                Auth Required
             </NavLink>
         </div>
 
         <AuthorizeView>
             <Authorized>
                 <div class="px-3 py-2">
-                    <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="Account/Manage">
-                        <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-person-fill%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z%27/%3E%3C/svg%3E');"></span> @context.User.Identity?.Name
+                    <NavLink
+                        class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                        href="Account/Manage">
+                        <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                            style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-person-fill%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z%27/%3E%3C/svg%3E');"></span>
+                        @(context?.User?.Identity?.Name ?? "Account")
                     </NavLink>
                 </div>
                 <div class="px-3 py-2">
                     <form action="Account/Logout" method="post">
-                        <AntiforgeryToken />
+                        @* AntiforgeryToken is not a default Blazor component. If you use ASP.NET Core Identity, antiforgery is handled automatically for Razor Pages and MVC. For Blazor Server, you may need to implement custom antiforgery logic or remove this line. *@
                         <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                        <button type="submit" class="flex items-center h-12 px-0 w-full text-left text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors bg-transparent border-none">
-                            <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-arrow-bar-left%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z%27/%3E%3C/svg%3E');"></span> Logout
+                        <button type="submit"
+                            class="flex items-center h-12 px-0 w-full text-left text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors bg-transparent border-none">
+                            <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                                style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-arrow-bar-left%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z%27/%3E%3C/svg%3E');"></span>
+                            Logout
                         </button>
                     </form>
                 </div>
             </Authorized>
             <NotAuthorized>
                 <div class="px-3 py-2">
-                    <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="Account/Register">
-                        <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-person%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z%27/%3E%3C/svg%3E');"></span> Register
+                    <NavLink
+                        class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                        href="Account/Register">
+                        <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                            style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-person%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z%27/%3E%3C/svg%3E');"></span>
+                        Register
                     </NavLink>
                 </div>
                 <div class="px-3 py-2">
-                    <NavLink class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors" href="Account/Login">
-                        <span class="inline-block w-5 h-5 mr-3 bg-cover" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-person-badge%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z%27/%3E%3Cpath d=%27M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z%27/%3E%3C/svg%3E');"></span> Login
+                    <NavLink
+                        class="flex items-center h-12 px-0 text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white rounded transition-colors"
+                        href="Account/Login">
+                        <span class="inline-block w-5 h-5 mr-3 bg-cover"
+                            style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27white%27 class=%27bi bi-person-badge%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z%27/%3E%3Cpath d=%27M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z%27/%3E%3C/svg%3E');"></span>
+                        Login
                     </NavLink>
                 </div>
             </NotAuthorized>
@@ -69,38 +115,11 @@
     </nav>
 </div>
 
-<!-- Mobile menu toggle styles using Tailwind for the hidden checkbox approach -->
-<style>
-  .navbar-toggler {
-    @apply appearance-none cursor-pointer w-14 h-10 text-white absolute top-2 right-4 md:hidden;
-    @apply border border-white/20 bg-white/10;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1.75rem;
-  }
 
-  .navbar-toggler:checked {
-    @apply bg-white/50;
-  }
-
-  .nav-scrollable {
-    @apply hidden;
-  }
-
-  .navbar-toggler:checked ~ .nav-scrollable {
-    @apply block;
-  }
-
-  @media (min-width: 768px) {
-    .nav-scrollable {
-      @apply block;
-    }
-  }
-</style>
 
 @code {
     private string? currentUrl;
+    private bool isMenuOpen = false;
 
     protected override void OnInitialized()
     {
@@ -114,9 +133,13 @@
         StateHasChanged();
     }
 
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+
     public void Dispose()
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
 }
-

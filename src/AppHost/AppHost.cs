@@ -1,14 +1,19 @@
+using static Shared.Services;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Add SQL Server resource
-var sqlserver = builder.AddSqlServer("sqlserver");
-var database = sqlserver.AddDatabase("tailwinddb");
+// Add PostgreSQL server resource with data volume and PgAdmin
+var postgres = builder.AddPostgres("postgres")
+	.WithLifetime(ContainerLifetime.Persistent)
+	.WithDataVolume("postgres-data")
+	.WithPgAdmin();
+
+// Add databases
+var userDatabase = postgres.AddDatabase(USER_DB);
+var articlesDatabase = postgres.AddDatabase(ARTICLES_DB);
 
 builder.AddProject<Projects.Web>("web")
-	.WithReference(database);
-
-// TODO: Add MongoDB
-
-// TODO: Add Website
+	.WithReference(userDatabase)
+	.WithReference(articlesDatabase);
 
 builder.Build().Run();

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 using Web.Components;
 using Web.Components.Account;
 using Web.Data;
+using static Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,13 +26,13 @@ builder.Services.AddAuthentication(options =>
 		})
 		.AddIdentityCookies();
 
-// Add Entity Framework with Aspire SQL Server integration
-builder.AddSqlServerDbContext<ApplicationDbContext>("tailwinddb");
+// Add Entity Framework with Aspire PostgreSQL integration
+builder.AddNpgsqlDbContext<UserDbContext>(USER_DB);
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-		.AddEntityFrameworkStores<ApplicationDbContext>()
+		.AddEntityFrameworkStores<UserDbContext>()
 		.AddSignInManager()
 		.AddDefaultTokenProviders();
 

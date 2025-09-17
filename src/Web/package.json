@@ -1,21 +1,11 @@
 {
-  "name": "web",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "build:css": "postcss wwwroot/tailwind.css -o wwwroot/app.css",
-    "watch:css": "postcss wwwroot/tailwind.css -o wwwroot/app.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.13",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1",
-    "tailwindcss": "^4.1.13"
-  }
+	"dependencies": {
+		"@tailwindcss/cli": "^4.1.13",
+		"tailwindcss": "^4.1.13"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:css": "npx @tailwindcss/cli -i wwwroot/css/input.css -o wwwroot/css/app.css",
+		"watch:css": "npx @tailwindcss/cli -i wwwroot/css/input.css -o wwwroot/css/app.css --watch"
+	}
 }
