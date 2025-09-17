@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Web.Data;
 
-public class SecurityDbContext
+public class UserDbContext
 (
-		DbContextOptions<SecurityDbContext> options
+		DbContextOptions<UserDbContext> options
 ) : IdentityDbContext<ApplicationUser>(options) { }

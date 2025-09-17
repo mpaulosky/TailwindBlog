@@ -7,11 +7,13 @@
 // Project Name :  Web
 // =======================================================
 
+using Microsoft.EntityFrameworkCore;
+
 namespace Web.Data;
 
-public class WebDbContext
+public class WebDbContext : DbContext
 {
 
-	
+
 
 }
